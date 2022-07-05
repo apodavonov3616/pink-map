@@ -39,6 +39,9 @@ export default function Map() {
 
     let service = new google.maps.places.PlacesService(mapRef.current);
     service.nearbySearch(request, callback);
+    service.getDetails(request, callback)
+    service.textSearch(request, callback);
+
     function callback(results, status) {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (let i = 0; i < results.length; i++) {
@@ -51,6 +54,15 @@ export default function Map() {
       }
     }
   }, []);
+
+//   function callback2(results, status) {
+//     if (status == google.maps.places.PlacesServiceStatus.OK) {
+//       for (var i = 0; i < results.length; i++) {
+//         var place = results[i];
+//         Marker(results[i]);
+//       }
+//     }
+//   }
 
     return <div className="container">
         <div className="controls"><h1>Map</h1></div>
