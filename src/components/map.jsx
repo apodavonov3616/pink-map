@@ -39,8 +39,8 @@ export default function Map() {
 
     let service = new google.maps.places.PlacesService(mapRef.current);
     service.nearbySearch(request, callback);
-    service.getDetails(request, callback)
-    service.textSearch(request, callback);
+    // service.getDetails(request, callback)
+    // service.textSearch(request, callback);
 
     function callback(results, status) {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -50,6 +50,8 @@ export default function Map() {
             position: place.geometry.location,
             map
           });
+          console.log(results[i].name)
+          console.log(results[i].vicinity)
         }
       }
     }
@@ -63,6 +65,21 @@ export default function Map() {
 //       }
 //     }
 //   }
+
+// function(input) {
+//     if input intor 
+//     array = [cafe,bar, ]
+//     else 
+//     array = [amusement]
+//     Math.random(arra.alkaray.lenght)
+//     request = { 
+//         location: { lat, lng },
+//         radius: "500",
+//         type: ["church"]  
+//       };
+// }
+
+{/* <button onlcik=function(introverted)></button> */}
 
     return <div className="container">
         <div className="controls"><h1>Map</h1></div>
